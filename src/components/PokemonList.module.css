@@ -1,0 +1,8 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    margin-right: 4.2rem;
+}

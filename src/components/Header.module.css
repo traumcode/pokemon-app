@@ -1,0 +1,16 @@
+.headerpicture {
+    height: 400px;
+    background-image: url("https://images.pexels.com/photos/1310847/pexels-photo-1310847.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .text {
+      font-size: 5rem;
+      color: white;
+  }

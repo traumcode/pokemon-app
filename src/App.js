@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Switch } from "react-router-dom";
+
+import Layout from "./components/Layout";
+import PokemonDetails from "./pages/PokemonDetails";
+import Pokemons from "./pages/Pokemons";
+import { useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, GlobalStyles } from "./ui/Themes.js";
+import classes from './App.module.css';
+
+const StyledApp = styled.div``;
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles></GlobalStyles>
+      <StyledApp>
+        <Layout>
+          <div>
+            <label className={classes.switch}>
+              <input type="checkbox"onClick={() => themeToggler()}></input>
+              <span className={classes.slider}></span>
+            </label>
+          </div>
+
+          <Switch>
+            <Route path="/" exact></Route>
+            <Route path="/pokemons" exact>
+              <Pokemons></Pokemons>
+            </Route>
+            <Route
+              exact
+              path="/pokemon/:pokemonNumber"
+              component={PokemonDetails}
+            />
+          </Switch>
+        </Layout>
+      </StyledApp>
+    </ThemeProvider>
   );
 }
 
