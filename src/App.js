@@ -22,12 +22,7 @@ function App() {
       <GlobalStyles></GlobalStyles>
       <StyledApp>
         <Layout>
-          <div>
-            <label className={classes.switch}>
-              <input type="checkbox"onClick={() => themeToggler()}></input>
-              <span className={classes.slider}></span>
-            </label>
-          </div>
+
 
           <Switch>
             <Route path="/" exact></Route>
